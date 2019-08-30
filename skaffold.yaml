@@ -1,0 +1,14 @@
+apiVersion: skaffold/v1beta13
+kind: Config
+build:
+  artifacts:
+  - image: taktakty/mysql-client
+    context: check-db
+  - image: taktakty/django
+    context: django
+deploy:
+  kubectl:
+    manifests:
+    - manifests/django.yaml
+    - manifests/mysql-secret.yaml
+    - manifests/mysql.yaml
