@@ -33,7 +33,6 @@ spec:
         command: ["sh", "mysqladmin.sh"]
         env:
         - name: MYSQL_PASSWORD
-          #value: password
           valueFrom:
             secretKeyRef:
               name: mysql-secret
@@ -43,18 +42,19 @@ spec:
         name: django
         env:
         - name: MYSQL_USER
-          #value: password
           valueFrom:
             secretKeyRef:
               name: mysql-secret
               key: user
         - name: MYSQL_PASSWORD
-          #value: password
           valueFrom:
             secretKeyRef:
               name: mysql-secret
               key: password
         - name: MYSQL_DATABASE
-          value: djk8s 
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: db_name
         ports:
         - containerPort: 8000

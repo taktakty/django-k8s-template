@@ -2,14 +2,14 @@ FROM python:3.7-alpine
 
 RUN \
   apk add --no-cache \
-    dumb-init \
+  dumb-init \
 	gcc \
 	linux-headers \
 	musl-dev \
 	libffi-dev \
-    libc-dev \
-    mariadb-client \
-    mariadb-dev \
+  libc-dev \
+  mariadb-client \
+  mariadb-dev \
 	make
 
 WORKDIR /usr/src/app
